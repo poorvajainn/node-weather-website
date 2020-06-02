@@ -2,14 +2,14 @@ const request=require('request')
 
 
 const forecast= function(lat,long,callback){
-    const url='https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+long+'9&appid=bdd84dc16c2c0153f3526e0945055f6c'
+    const url='https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+long+'9&appid=bdd84dc16c2c0153f3526e0945055f6c&units=metric'
 
     request({ url:url , json: true},function(error, response){
     if(response.body.cod==="400"||error){
         callback('cant connect',undefined)
 
     }else{
-        callback(undefined,response.body.main.temp+" K out. There is a chance of "+ response.body.weather[0].description)
+        callback(undefined,"Its "+response.body.main.temp+" degrees outside. There is a chance of "+ response.body.weather[0].description)
     }
     })
 }
