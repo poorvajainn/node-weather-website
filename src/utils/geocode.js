@@ -9,7 +9,7 @@ const forecast= function(lat,long,callback){
         callback('cant connect',undefined)
 
     }else{
-        callback(undefined,response.body.main.temp+" degrees out. There is a chance of "+ response.body.weather[0].description)
+        callback(undefined,response.body.main.temp+" K out. There is a chance of "+ response.body.weather[0].description)
     }
     })
 }
